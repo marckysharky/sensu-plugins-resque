@@ -43,7 +43,7 @@ class CheckResqueFailedJobs < Sensu::Plugin::Check::CLI
     json = JSON.parse(response.body)
     errors = json.select { |_,v| v.to_i > config[:threshold] }
 
-    (errors.empty? ? ok : critical(errors))
+    (errors.empty? ? ok : warning(errors))
   end
 
   def get_response
