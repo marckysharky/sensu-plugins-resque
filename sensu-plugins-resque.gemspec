@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Marc Watts"]
   spec.email         = ["marcky.sharky@googlemail.com"]
 
-  spec.summary       = %q{sensu-plugin for resque}
+  spec.summary       = %q{sensu plugin for resque}
   spec.description   = %q{simple sensu plugin for resque checks}
   spec.homepage      = "https://github.com/marckysharky/sensu-plugins-resque"
 
@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   end
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.bindir        = "exe"
+  spec.bindir        = "bin"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
