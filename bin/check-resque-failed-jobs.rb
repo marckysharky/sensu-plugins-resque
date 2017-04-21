@@ -1,7 +1,7 @@
 #! /usr/bin/env ruby
 require 'sensu-plugin/check/cli'
 require 'uri'
-require 'net/http'
+require 'net/https'
 require 'json'
 
 class CheckResqueFailedJobs < Sensu::Plugin::Check::CLI
@@ -58,7 +58,7 @@ class CheckResqueFailedJobs < Sensu::Plugin::Check::CLI
       r.basic_auth config[:user], config[:password] if config[:user] && config[:password]
     end
 
-    Net::HTTP.start(uri.hostname, uri.port) do |http|
+    Net::HTTP.start(uri.hostname, uri.port, use_ssl: (uri.scheme == 'https')) do |http|
       http.request(req)
     end
   end
